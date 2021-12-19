@@ -29,6 +29,8 @@ public class CodeStudy211219 {
 			
 			String[] tupleArray = tuple.split(",");
 			
+			Set<Integer> tupleunit = new HashSet<>();
+			
 			break;
 		}
 		

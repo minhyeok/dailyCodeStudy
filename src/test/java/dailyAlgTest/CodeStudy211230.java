@@ -59,7 +59,7 @@ public class CodeStudy211230 {
 		
 		return max;
 	}
-	
+	/// 뭐야... 이게 끝이야? // 결국 이게 dfs였다.
 	public int dungeonTraverse(int stamina, ArrayList<int[]> dungeons, int count) {
 		
 		int maxed = count;
@@ -76,4 +76,6 @@ public class CodeStudy211230 {
 		}
 		return maxed;
 	}
+	
+	/// 끝이야...?
 }

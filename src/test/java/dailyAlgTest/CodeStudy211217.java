@@ -81,6 +81,8 @@ public class CodeStudy211217 {
 		
 		System.out.println("powed limit = "+ limit);
 		
+		// 2의 자릿수가. 
+		
 		for(int i = 3; i <= limit; i+=3) {
 			String binString = Integer.toBinaryString(i);
 			System.out.println(binString);
@@ -131,20 +133,7 @@ public class CodeStudy211217 {
 	}
 	
 	
-	@Test
-	public void Test5() {
-		int[] arr = new int[] {0,1,2,3,4,5};
-		
-		ArrayList<List<Integer>> comb = nCkV2(arr, 3);
-		
-		System.out.println("comb :" +comb);
-		
-		ArrayList<Long> combs = nCkOne(6, 3);
-		
-		for(Long combone : combs) {
-			System.out.println("combOne:" + Long.toBinaryString(combone));
-		}
-	}
+	
 	
 	
 	
@@ -178,7 +167,7 @@ public class CodeStudy211217 {
                 if((i & 1 << j )>0) cnt++;
             }
             if(cnt==k){
-            	long tmp = 0;
+            	//long tmp = 0;
 //                List<Integer> tmp = new ArrayList<>();
             	/*
                 for(int j=0;j<n;j++){
@@ -188,53 +177,83 @@ public class CodeStudy211217 {
                     	
                     }
                 }*/
-                System.out.println("i =" + i);
+                //System.out.println("i =" + i);
                 ret.add((long)i);
             }
         }
         return ret;
     }
 	
+	
+	@Test
+	public void Test5() {
+		ArrayList<Long> combs = nCkOne(30, 3);
+		
+		for(Long combone : combs) {
+			if(combone % 3 == 0)
+			    System.out.println("combOne:[" + Long.toBinaryString(combone) +"],  [" + combone + "]");
+		}
+	}
+	
+	
+	
 	@Test
 	public void Test6() {
 		
-		int n = 6;
+		// 문제가 무엇이었나 ? : 이진법으로 표현된 숫자가 '1'이 3개인 것들 중에서, 3의 배수인 것들을 찾아라.
+		
+		int n = 30;
 		int k = 3;
 		boolean [] visited = new boolean[n];
 		
 		ArrayList<Integer> integs = new ArrayList<>();
 		
 		//for (int i = 1; i <= n; i++) {
-			combination(n, visited, 0, n, k, integs);
+			
 		//}
+		combination( visited, 0, n, k, integs);
+		
+		for(Integer combone : integs) {
+			if(combone % 3 == 0)
+			    System.out.println("combOne:[" + Long.toBinaryString(combone) +"],  [" + combone + "]");
+		}
 	}
 	
 	
-	static void combination(int nums, boolean[] visited, int start, int n, int r, ArrayList<Integer> combs) {
-	    if(r == 0) {
-	        print(nums, visited, n, combs);
-	    	
-	        return;
-	    } 
+	// 백트래킹 사용?
+	static void combination(//int[] arr, 
+			boolean[] visited, int start, int n, int r, ArrayList<Integer> integs) {
+        if (r == 0) {
+            print(//arr, 
+            		visited, n, integs);
+            return;
+        }
 
-	    for(int i=start; i<n; i++) {
-	        visited[i] = true;
-	        combination(nums, visited, i + 1, n, r - 1, combs);
-	        visited[i] = false;
-	    }
-	}
+        for (int i = start; i < n; i++) {
+            visited[i] = true;
+            combination(//arr,
+            		visited, i + 1, n, r - 1, integs);
+            visited[i] = false;
+        }
+    }
 	
-	static void print(int nums, boolean[] visited, int n, ArrayList<Integer> combs) {
-		int temp = 0;
+	static void print(//int[] arr, 
+			boolean[] visited, int n, ArrayList<Integer> integs) {
+		StringBuffer digits = new StringBuffer();
         for (int i = 0; i < n; i++) {
             if (visited[i]) {
-//                System.out.print(arr[i] + " ");
-            	//combs.add(arr[i]);
-            	temp += (int)Math.pow(2, i);
+            	digits.append("1");
+            //	System.out.print("1");
+                //System.out.print(arr[i] + " ");
+            } else {
+            	digits.append("0");
+          //  	System.out.print("0");
             }
         }
-        combs.add(temp);
-        System.out.println();
+        
+        integs.add(Integer.parseInt(digits.toString(), 2));
+        
+        //System.out.println();
     }
 	
 

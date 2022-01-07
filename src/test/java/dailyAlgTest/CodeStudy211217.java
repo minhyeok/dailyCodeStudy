@@ -220,7 +220,7 @@ public class CodeStudy211217 {
 	}
 	
 	
-	// 백트래킹 사용?
+	// 백트래킹 사용?  ;;; 속도가 "월등히" 빠르다.
 	static void combination(//int[] arr, 
 			boolean[] visited, int start, int n, int r, ArrayList<Integer> integs) {
         if (r == 0) {

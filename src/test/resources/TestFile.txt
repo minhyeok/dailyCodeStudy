@@ -1,0 +1,4 @@
+tmp0 = RX INTERACT PC
+tmp1 = tmp0 NOT ZVT
+tmp2 = tmp0 AND LVT
+tmp3 = tmp1 OR tmp2

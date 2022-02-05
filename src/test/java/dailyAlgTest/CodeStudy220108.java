@@ -1,12 +1,15 @@
 package dailyAlgTest;
 
-import static org.junit.Assert.assertArrayEquals;
+
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CodeStudy220108 {
+	//https://programmers.co.kr/learn/courses/30/lessons/12981
 	
 	@Test
 	public void Test1() {

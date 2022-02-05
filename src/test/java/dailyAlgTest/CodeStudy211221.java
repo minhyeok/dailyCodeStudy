@@ -1,8 +1,8 @@
 package dailyAlgTest;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CodeStudy211221 {
 /// 목표는 3진법을 1,2,4를 이용해 구현하기.
